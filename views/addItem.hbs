@@ -1,0 +1,80 @@
+<!********************************************************************************
+
+WEB322 – Assignment 03
+I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
+No part of this assignment has been copied manually or electronically from any other source 
+(including 3rd party web sites) or distributed to other students.
+
+Name: Ehsan Mahmood
+Student ID: 115028227
+Date: 30/10/2024
+Repl.it Web App URL: https://replit.com/join/kswbbqleik-ehsanmahmood202
+GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
+******************************************************************************** -->
+
+
+{{!-- Add Item Page --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" style="background: #1c1e21; color: #e91e63; padding: 100px 0;">
+        <div class="container text-center">
+            <h1 style="font-size: 3rem; font-weight: bold;">Want to add a new item? We got you covered!</h1>
+            <p style="font-size: 1.5rem;">Use our form below and submit a request today!</p>
+        </div>
+    </section>
+
+    <!-- Add Item Form -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add New Item</h1>
+        <form action="/items/add" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="1">Home, Garden</option>
+                        <option value="2">Electronics, Computers, Video Games</option>
+                        <option value="3">Clothing</option>
+                        <option value="4">Sports & Outdoors</option>
+                        <option value="5">Pets</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Description</label>
+                <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="featureImage" class="form-label">Feature Image</label>
+                    <input type="file" class="form-control" id="featureImage" name="featureImage">
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+        <p>&copy; The WEB322 Store | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

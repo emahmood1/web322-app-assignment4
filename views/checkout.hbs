@@ -12,6 +12,20 @@ Repl.it Web App URL: https://replit.com/join/kswbbqleik-ehsanmahmood202
 GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
 
 ******************************************************************************** -->
+<!********************************************************************************
+
+WEB322 – Assignment 03
+I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
+No part of this assignment has been copied manually or electronically from any other source 
+(including 3rd party web sites) or distributed to other students.
+
+Name: Ehsan Mahmood
+Student ID: 115028227
+Date: 30/10/2024
+Repl.it Web App URL: https://replit.com/join/kswbbqleik-ehsanmahmood202
+GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
+
+******************************************************************************** -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,34 +49,28 @@ GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
 </head>
 <body>
 
-    <!-- Navigation -->
+      <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">WEB322 Store</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">WEB322 Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/categories">Categories</a>
-                    </li>
+                    {{#navLink "/about"}}About{{/navLink}}
+                    {{#navLink "/shop"}}Shop{{/navLink}}
+                    {{#navLink "/items"}}Items{{/navLink}}
+                    {{#navLink "/categories"}}Categories{{/navLink}}
+                    {{#navLink "/items/add"}}Add Items{{/navLink}}
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Checkout Message -->
     <div class="container">
         <div class="checkout-message">
-            <p><%= message %></p>
+            <p>{{message}}</p>
             <a href="/shop" class="btn btn-primary btn-home">Back to Shop</a>
         </div>
     </div>

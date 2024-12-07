@@ -1,17 +1,3 @@
-<!********************************************************************************
-
-WEB322 – Assignment 03
-I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
-No part of this assignment has been copied manually or electronically from any other source 
-(including 3rd party web sites) or distributed to other students.
-
-Name: Ehsan Mahmood
-Student ID: 115028227
-Date: 30/10/2024
-Repl.it Web App URL: https://replit.com/join/kswbbqleik-ehsanmahmood202
-GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
-******************************************************************************** -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,45 +74,37 @@ GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">WEB322 Store</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">WEB322 Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/categories">Categories</a>
-                    </li>
+                    {{#navLink "/about"}}About{{/navLink}}
+                    {{#navLink "/shop"}}Shop{{/navLink}}
+                    {{#navLink "/items"}}Items{{/navLink}}
+                    {{#navLink "/categories"}}Categories{{/navLink}}
+                    {{#navLink "/items/add"}}Add Items{{/navLink}}
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Cart Content -->
     <div class="container cart-container">
         <h1 class="cart-header">Your Shopping Cart</h1>
 
-        <% if (cartItems.length > 0) { %>
-            <!-- Cart Items List -->
-            <ul class="list-group mb-4">
-                <% cartItems.forEach(item => { %>
-                    <li class="list-group-item cart-item d-flex justify-content-between align-items-center">
-                        <span><strong><%= item.itemName %></strong></span>
-                        <span>$<%= item.itemPrice %></span>
+        {{#if cartItems.length}}
+            <ul class="list-group">
+                {{#each cartItems}}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><strong>{{this.name}}</strong> - ${{this.price}}</span>
                     </li>
-                <% }) %>
+                {{/each}}
             </ul>
 
             <!-- Cart Total -->
             <div class="cart-total">
-                Total: <span>$<%= total.toFixed(2) %></span>
+                Total: <span>${{total}}</span>
             </div>
 
             <!-- Cart Actions -->
@@ -144,14 +122,13 @@ GitHub Repository URL: https://github.com/emahmood1/web322-app-assignment2.git
                     <button type="submit" class="btn btn-success">Checkout</button>
                 </form>
             </div>
-
-        <% } else { %>
+        {{else}}
             <!-- Empty Cart Message -->
             <p class="empty-cart-message">Your cart is empty.</p>
             <div class="text-center">
                 <a href="/shop" class="btn btn-primary mt-4">Go to Shop</a>
             </div>
-        <% } %>
+        {{/if}}
     </div>
 
 </body>

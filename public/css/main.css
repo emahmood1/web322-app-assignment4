@@ -68,6 +68,18 @@ a:hover {
     font-size: 1.8rem;
     color: var(--taro-primary);
 }
+.navbar {
+    background-color: #343a40 !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #e91e63 !important;
+}
 
 .fixed-top {
     background-color: var(--neutral-dark);
@@ -345,3 +357,4 @@ footer {
         transform: translateY(0);
     }
 }
+
